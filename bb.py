@@ -1,28 +1,29 @@
+import random
 from random import randint
 random_list = []
 while True:
     try:
-        n = int(input("Укажите количество элементов в списке: "))
-        if n > 0 :
+        M = int(input("Укажите M количество строк в списке: "))
+        if M > 0 :
             break
         else:
-            print("Значение n должно быть больше 0")
+            print("Значение должно быть больше 0")
     except ValueError:
         print("Некорректный ввод.Нужно целое число.")
-for i in range(n):
-    random_list.append(randint(1, 100))
 while True:
     try:
-        C = int(input("Укажите число C: "))
-        if C > 0 :
+        N = int(input("Укажите число N элементов в списке: "))
+        if N > 0 :
             break
         else:
-            print("Значение C должно быть больше 0")
+            print("Значение должно быть больше 0")
     except ValueError:
         print("Некорректный ввод. Нужно целое число.")
-count = 0
-for element in random_list:
-    if element < C:
-        count += 1
-print(random_list)
-print("Количество элементов списка меньше C:", count)
+A = [0] * N
+for i in range(N):
+    A[i] = [0] * M
+
+for i in range(M):
+    for o in range(N):
+        A[o][i]= (o+1)*10
+print(A)
