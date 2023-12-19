@@ -26,4 +26,5 @@ for i in range(N):
 for i in range(M):
     for o in range(N):
         A[o][i]= (o+1)*10
-print(A)
+for i in A:
+    print(*i)

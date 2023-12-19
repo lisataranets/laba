@@ -1,18 +1,29 @@
-text=str(input("Введите текст:"))
-vse_slova=[]
-one_slovo=""
-for i in text:
-    if i!=" " and i!="." and i!=",":
-        one_slovo+=i
+import random
+def PowerN(X,N):
+    if N==0:
+        return 1
+    elif N>0 and N%2==0:
+        return PowerN(X,N//2)**2
+    elif N>0 and N%2!=0:
+        return X*PowerN(X,N-1)
     else:
-        if one_slovo!='':
-            vse_slova.append(one_slovo)
-            one_slovo=""
-vse_slova.append(one_slovo)
-len_max=vse_slova[0]
-num=0
-for n in range(len(vse_slova)):
-    if len(vse_slova[n])>len(len_max):
-        len_max=vse_slova[n]
-        num=n
-print("самое длинное слово:", vse_slova[num])
+        return 1/PowerN(X,-N)
+while True:
+    try:
+        X = float(input("Укажите число X "))
+        break
+    except ValueError:
+        print("Некорректный ввод. Нужно число")
+N_n=[]
+for i in range(10):
+    n=(input("Укажите пять значений N"))
+    try:
+        nc=int(n)
+        N_n.append(nc)
+    except ValueError:
+        print("Некорректный ввод. Нужно целое число")
+    if len(N_n)==5:
+        break
+print(N_n)
+for N in N_n:
+    print(PowerN(X,N))

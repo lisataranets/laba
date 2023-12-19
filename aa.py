@@ -1,19 +1,28 @@
+def SortLnk(a,b,c):
+    if a>b:
+        a,b=b,a
+    if b>c:
+        b,c=c,b
+    if a>c:
+        a,c=c,a
+    if a > b:
+        a, b = b, a
+    return a,b,c
 while True:
     try:
-        N = int(input("Укажите число N стран в словаре: "))
-        if N > 0 :
-            break
-        else:
-            print("Значение должно быть больше 0")
+        A_1= float(input("Укажите число A_1 для первого набора: "))
+        B_1 = float(input("Укажите число B_1 для первого набора: "))
+        C_1 = float(input("Укажите число C_1 для первого набора: "))
+        break
     except ValueError:
-        print("Некорректный ввод. Нужно целое число.")
-city={}
-for i in range(N):
-    info = input("Добавьте в словарь информацию: страна город ").split()
-    for k in info[1:]:
-        city[k] = info[0]
-m=input('Введите название города: ')
-if m in city:
-    print("Этот город расположен в стране: ",city.get(m))
-else:
-    print(" ")
+        print("Некорректный ввод. Нужен набор из чисел. Повторите ввод")
+print(SortLnk(A_1,B_1,C_1))
+while True:
+    try:
+        A_2= float(input("Укажите число A_2 для второго набора: "))
+        B_2 = float(input("Укажите число B_2 для второго набора: "))
+        C_2 = float(input("Укажите число C_2 для второго набора: "))
+        break
+    except ValueError:
+        print("Некорректный ввод. Нужен набор из чисел. Повторите ввод")
+print(SortLnk(A_2,B_2,C_2))
